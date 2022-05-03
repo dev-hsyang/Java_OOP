@@ -1,10 +1,13 @@
 package myDotComGame;
 
+import dotComObservers.Observable;
+
 import java.util.*;
 
 import java.util.ArrayList;
 
-public class DotCom {
+public class DotCom extends Observable {
+
     protected ArrayList<String> locationCells;
     private String name;
 
@@ -22,10 +25,11 @@ public class DotCom {
                 System.out.println("Ouch! You sunk " + name + " : ( ");
             } else {
                 result = "hit";
-            } // close if
-        } // close if
+            }
+            this.notifyObservers();
+        }
         return result;
-    } // close method
+    }
 
 
     public void setName(String n) {
@@ -34,6 +38,10 @@ public class DotCom {
 
     public String getName(){
         return name;
+    }
+
+    public ArrayList<String> getState(){
+        return (ArrayList<String>) locationCells.clone();
     }
 
 }

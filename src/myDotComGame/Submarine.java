@@ -12,14 +12,16 @@ public class Submarine extends DotCom {
         String result = "miss";
         int index = locationCells.indexOf(userInput);
         if (index >= 0) {
-            locationCells.remove(index);
+            //locationCells.remove(index);
             if(underWater == false) {
+                locationCells.remove(index);
                 if (locationCells.isEmpty()) {
                     result = "kill";
                     System.out.println("Ouch! You sunk " + getName() + " : ( ");
                 } else {
                     result = "hit";
                 }
+                this.notifyObservers();
             }// close if
             underWater = true;
         } // close if

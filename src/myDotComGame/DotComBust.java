@@ -1,5 +1,7 @@
 package myDotComGame;
 
+import dotComObservers.SurvivingCells;
+
 import java.util.*;
 
 public class DotComBust {
@@ -17,6 +19,11 @@ public class DotComBust {
         three.setName("Go2.com");
         Submarine four = new Submarine();
         four.setName("Dolphin.com");
+
+        one.attach(new SurvivingCells(one));
+        two.attach(new SurvivingCells(two));
+        three.attach(new SurvivingCells(three));
+        four.attach(new SurvivingCells(four));
 
         dotComsList.add(one);
         dotComsList.add(two);
